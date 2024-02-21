@@ -18,9 +18,11 @@ export class MainPagesComponent {
     power: 75000
   }];
 
-  onNewCharacter(character:Character){
-    console.log('MainPage');
-    console.log(character);
+  onNewCharacter(character:Character):void{
+    this.characters.push(character)
+  }
 
+  onDeleteCharacter(index:number):void{
+    this.characters.splice(index,1);
   }
 }

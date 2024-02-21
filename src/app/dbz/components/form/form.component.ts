@@ -6,11 +6,10 @@ import { Character } from '../../interfaces/character.interface';
   selector: 'app-dbz-form',
   templateUrl: './form.component.html',
   styleUrl: './form.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharacterComponent {
 
-  @Output()
+@Output()
  public onNewCharacter: EventEmitter<Character> = new EventEmitter()
 
 public character: Character ={
@@ -18,15 +17,13 @@ public character: Character ={
   power: 0
 }
 
-addCaharacter(){
+addCaharacter():void{
 
-  console.log(this.character);
   if(this.character.name.length===0)return
 
-  this.onNewCharacter.emit({...this.character})
+  this.onNewCharacter.emit(this.character)
 
-  this.character.name=''
-  this.character.power=0
+  this.character={name:'', power: 0}
 
 }
 
